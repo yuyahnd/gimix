@@ -1,6 +1,7 @@
 from _pytest._py.path import LocalPath
 import pytest
 import json
+import pandas as pd
 
 
 @pytest.fixture(scope="session")
@@ -28,3 +29,14 @@ def json_file(tmpdir) -> str:
     with open(json_file, mode="w", encoding="utf-8") as file:
         json.dump(contents, file)
     return json_file
+
+@pytest.fixture(scope="session")
+def csv_file(tmpdir) -> str:
+    csv_file = str(tmpdir.join("text.csv"))
+    data = {
+        "A": [1, 2, 3],
+        "B": ["a", "b", "c"],
+    }
+    df = pd.DataFrame(data=data)
+    df.to_csv(csv_file, index=False)
+    return csv_file

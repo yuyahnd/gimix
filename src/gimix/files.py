@@ -1,6 +1,9 @@
 from typing import Any
 from pathlib import Path
+from pandas import DataFrame
+
 import json
+import pandas as pd
 
 
 def load(filename: str, mode: str="r", encoding: str="utf-8") -> Any:
@@ -24,6 +27,8 @@ def load(filename: str, mode: str="r", encoding: str="utf-8") -> Any:
     suffix = pfile.suffix
     if suffix == ".json":
         contents = load_json(filename, mode=mode, encoding=encoding)
+    elif suffix == ".csv":
+        contents = load_csv(filename)
     else:
         contents = readlines(filename, mode=mode, encoding=encoding)
     return contents
@@ -48,6 +53,10 @@ def load_json(filename: str, mode: str="r", encoding: str="utf-8") -> dict:
     """
     with open(filename, mode=mode, encoding=encoding) as file:
         return json.load(file)
+
+
+def load_csv(filename: str) -> DataFrame:
+    return pd.read_csv(filename)
 
 
 def readlines(filename: str, mode: str="r", encoding: str="utf-8") -> list:
