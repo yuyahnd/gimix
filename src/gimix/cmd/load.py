@@ -1,5 +1,6 @@
 from typing import Any
 from argparse import (
+    ArgumentParser,
     Namespace,
     _SubParsersAction as SubParsersAction,
 )
@@ -8,7 +9,7 @@ from gimix import files
 import sys
 
 
-def parser(subparser: SubParsersAction) -> None:
+def parser(subparser: SubParsersAction) -> ArgumentParser:
     parser  = subparser.add_parser("load", help="see `load -h`")
     parser.add_argument("-i", "--input",
                         type=str,
@@ -23,6 +24,8 @@ def parser(subparser: SubParsersAction) -> None:
                         default="utf-8",
                         help="file encoding")
     parser.set_defaults(handler=load_command)
+
+    return parser
 
 
 def load_command(args: Namespace) -> None:

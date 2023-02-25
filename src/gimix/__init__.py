@@ -1,3 +1,3 @@
-from gimix.files import load
+from gimix import files
 
 __version__ = "0.0.1"
