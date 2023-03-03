@@ -10,7 +10,7 @@ import sys
 
 
 def parser(subparser: SubParsersAction) -> ArgumentParser:
-    parser  = subparser.add_parser("load", help="see `load -h`")
+    parser = subparser.add_parser("load", help="see `load -h`")
     parser.add_argument("-i", "--input",
                         type=str,
                         help="file path")
@@ -46,6 +46,7 @@ def load_command(args: Namespace) -> None:
         for input in paths:
             contents = files.load(input, mode, encoding)
             echo(contents)
+
 
 def echo(contents: Any) -> None:
     if isinstance(contents, list):

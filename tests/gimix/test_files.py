@@ -1,6 +1,7 @@
 from gimix import files
 from pandas import DataFrame
 
+
 def test_load_text(text_file):
     contents = files.load(text_file)
     assert contents[0] == "abc"

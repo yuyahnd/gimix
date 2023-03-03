@@ -6,7 +6,7 @@ import json
 import pandas as pd
 
 
-def load(filename: str, mode: str="r", encoding: str="utf-8") -> Any:
+def load(filename: str, mode: str = "r", encoding: str = "utf-8") -> Any:
     """Reads and returns the file contents according to the file extension.
 
     Parameters
@@ -34,7 +34,7 @@ def load(filename: str, mode: str="r", encoding: str="utf-8") -> Any:
     return contents
 
 
-def load_json(filename: str, mode: str="r", encoding: str="utf-8") -> dict:
+def load_json(filename: str, mode: str = "r", encoding: str = "utf-8") -> dict:
     """Reads the contents of a json file and returns it as a dict.
 
     Parameters
@@ -59,7 +59,7 @@ def load_csv(filename: str) -> DataFrame:
     return pd.read_csv(filename)
 
 
-def readlines(filename: str, mode: str="r", encoding: str="utf-8") -> list:
+def readlines(filename: str, mode: str = "r", encoding: str = "utf-8") -> list:
     """Reads the contents of a text file and returns it as a list.
 
     Parameters

@@ -22,13 +22,14 @@ def text_file(tmpdir) -> str:
 def json_file(tmpdir) -> str:
     json_file = str(tmpdir.join("test.json"))
     contents = {
-        "key" : "value",
-        "key_list" : [1, 2, 3],
-        "key_dict" : {"a": 1, "b": 2, "c": "123"},
+        "key": "value",
+        "key_list": [1, 2, 3],
+        "key_dict": {"a": 1, "b": 2, "c": "123"},
     }
     with open(json_file, mode="w", encoding="utf-8") as file:
         json.dump(contents, file)
     return json_file
+
 
 @pytest.fixture(scope="session")
 def csv_file(tmpdir) -> str:
