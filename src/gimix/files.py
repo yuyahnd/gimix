@@ -55,8 +55,22 @@ def load_json(filename: str, mode: str = "r", encoding: str = "utf-8") -> dict:
         return json.load(file)
 
 
-def load_csv(filename: str) -> DataFrame:
-    return pd.read_csv(filename)
+def load_csv(filename: str, encoding: str = "utf-8") -> DataFrame:
+    """Read the contents of a CSV file and return it as a DataFrame.
+
+    Parameters
+    ----------
+    filename : str
+        file name
+    encoding : str, optional
+        file encoding, by default "utf-8"
+
+    Returns
+    -------
+    DataFrame
+        DataFrame
+    """
+    return pd.read_csv(filename, encoding=encoding)
 
 
 def readlines(filename: str, mode: str = "r", encoding: str = "utf-8") -> list:
