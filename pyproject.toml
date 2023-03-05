@@ -43,9 +43,6 @@ dev = [
 "Bug Tracker" = "https://github.com/yuyahnd/gimix/issues"
 "Repository" = "https://github.com/yuyahnd/gimix.git"
 
-[project.scripts]
-"mix" = "gimix.__main__:main"
-
 [tool.setuptools]
 package-dir = {"" = "src"}
 
