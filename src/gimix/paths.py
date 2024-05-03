@@ -31,3 +31,19 @@ def suffix(path: str) -> str:
         extension
     """
     return Path(path).suffix
+
+
+def join(base: str, *args: str) -> str:
+    """Concatenates the specified path.
+
+    Parameters
+    ----------
+    base : str
+        base path
+
+    Returns
+    -------
+    str
+        specified path
+    """
+    return Path(base).joinpath(*args).as_posix()
