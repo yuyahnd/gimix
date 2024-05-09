@@ -35,4 +35,4 @@ def test_suffix(path, suffix):
 ])
 def test_join(base, path):
     result = paths.join(base, *path)
-    assert result == os.path.join(base, *path)
+    assert result == os.path.join(base, *path).replace(os.path.sep, "/")
