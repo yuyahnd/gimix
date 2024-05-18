@@ -1,4 +1,6 @@
 import pytest
+import os
+
 from gimix import paths
 
 @pytest.mark.parametrize("path, filename", [
@@ -23,3 +25,15 @@ def test_filename(path, filename):
 def test_suffix(path, suffix):
     result = paths.suffix(path)
     assert suffix == result
+
+
+@pytest.mark.parametrize("base, path", [
+    ("base", ""),
+    ("base", "/a"),
+    ("base", ("a")),
+    ("base", ("a", "b")),
+    ("base", ("a", "/b")),
+])
+def test_join(base, path):
+    result = paths.join(base, *path)
+    assert result == os.path.join(base, *path).replace(os.path.sep, "/")
