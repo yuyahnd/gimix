@@ -1,5 +1,6 @@
 import pytest
 import os
+
 from gimix import paths
 
 @pytest.mark.parametrize("path, filename", [
