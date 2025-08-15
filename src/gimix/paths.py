@@ -33,6 +33,22 @@ def suffix(path: str) -> str:
     return Path(path).suffix
 
 
+def parent(path: str) -> str:
+    """Returns the file parent path from a path.
+
+    Parameters
+    ----------
+    path : str
+        path
+
+    Returns
+    -------
+    str
+        parent path
+    """
+    return str(Path(path).parent)
+
+
 def join(base: str, *args: str) -> str:
     """Concatenates the specified path.
 
