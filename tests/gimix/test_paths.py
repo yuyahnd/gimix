@@ -1,5 +1,6 @@
 import pytest
 import os
+
 from gimix import paths
 
 @pytest.mark.parametrize("path, filename", [
@@ -24,6 +25,18 @@ def test_filename(path, filename):
 def test_suffix(path, suffix):
     result = paths.suffix(path)
     assert suffix == result
+
+
+@pytest.mark.parametrize("path, parent", [
+    ("test.txt",       "."),
+    ("./test.txt",     "."),
+    ("./dir/test.txt", "dir"),
+    ("test",           "."),
+    ("./test",         "."),
+])
+def test_parent(path, parent):
+    result = paths.parent(path)
+    assert parent == result
 
 
 @pytest.mark.parametrize("base, path", [

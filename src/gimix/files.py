@@ -1,6 +1,6 @@
 from typing import Any
-from pathlib import Path
 from pandas import DataFrame
+from gimix import paths
 
 import json
 import pandas as pd
@@ -17,8 +17,7 @@ def load(filename: str, mode: str = "r", encoding: str = "utf-8") -> Any:
     Returns:
         Any: file contents
     """
-    pfile = Path(filename)
-    suffix = pfile.suffix
+    suffix = paths.suffix(filename)
     if suffix == ".json":
         contents = load_json(filename, mode=mode, encoding=encoding)
     elif suffix == ".csv":
