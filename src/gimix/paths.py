@@ -4,15 +4,11 @@ from pathlib import Path
 def filename(path: str) -> str:
     """Returns file name from path.
 
-    Parameters
-    ----------
-    path : str
-        path
+    Args:
+        path (str): path
 
-    Returns
-    -------
-    str
-        file name
+    Returns:
+        str: file name
     """
     return Path(path).name
 
@@ -20,15 +16,11 @@ def filename(path: str) -> str:
 def suffix(path: str) -> str:
     """Returns the file extension from a path.
 
-    Parameters
-    ----------
-    path : str
-        path
+    Args:
+        path (str): path
 
-    Returns
-    -------
-    str
-        extension
+    Returns:
+        str: extension
     """
     return Path(path).suffix
 
@@ -36,14 +28,10 @@ def suffix(path: str) -> str:
 def join(base: str, *args: str) -> str:
     """Concatenates the specified path.
 
-    Parameters
-    ----------
-    base : str
-        base path
+    Args:
+        base (str): base path
 
-    Returns
-    -------
-    str
-        specified path
+    Returns:
+        str: specified path
     """
     return Path(base).joinpath(*args).as_posix()
